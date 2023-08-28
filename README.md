@@ -35,3 +35,10 @@
   * AdminPublication
 
 ## Un solo diagrama de secuencia general (opcional)
+
+
+## Instalaciones
+
+- yarn create vite
+- yarn (node_modules)
+- yarn add react-router-dom@6

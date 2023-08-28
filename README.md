@@ -1,44 +1,78 @@
-# Blog
+<h1 align="center">Template: README</h1>
 
-| Nombre del proyecto | XXXXX Blog                    |
-| ------------------- | ----------------------------- |
-| Repositorio de git  | url del repo                  |
-| Requerimentos       | path/url de los requerimentos |
-| Prototipo           | Boceto rapido del prototipo   |
+<div align="center">
+  <p align="center">
+    A simple and straightforward README template.
+</div>
 
-## Vista rápida del proyecto
+## About the project
 
-[Imagen]
+Travelers' Blog Application designed and intended for users who want to share their travel adventures from around the world, allowing them to view comments from other users and stay informed about the features of different places.
 
-## Cantidad de servicios a utilizar (puede ir cambiando)
+### Technologies used
+[![react][react]][react-url]
+[![typescript][ts]][ts-url]
+[![jest][jest]][jest-url]
+[![react-testing-library][react-testing-library]][react-testing-library-url]
+[![Material-UI][mui]][mui-url]
+[![Json Server][json-server]][json-server-url]
 
-<details>
-  <summary>
-    Servicio de autenticación
-  </summary>
-  <pre>{{Baseurl}}/api/v1/auth</pre>
-</details>
+## Development
 
-<details>
-  <summary>
-    Servicio de autenticación
-  </summary>
-  <pre>{{Baseurl}}/api/v1/auth</pre>
-</details>
+### Make it your own
+To get a local copy, clone it using:
+```bash
+git clone https://github.com/psc88/blog-travellers.git
+```
 
+```bash
+rm -rf .git && git init
+git add .
+git commit -m "Initial commit"
+```
+### Install dependencies:
 
-## Cantidad de vistas o páginas (Solo nombrarlas)
+```bash
+pnpm install
+#or
+yarn install
+#or
+npm install 
+#and
+yarn add react-router-dom@6
+```
+## Base Dependencies
 
-  * Home
-  * Login/Register
-  * DetailPublication
-  * AdminPublication
+- [react][react-url] create user interfaces from components.
+- [Material-UI][mui-url] for stylesheets.
+- [jest][jest-url] and [react-testing-library][react-testing-library] for testing.
+- [json-server][json-server-url] Library that allows simulating APIs.
+ 
+## Folder Structure
 
-## Un solo diagrama de secuencia general (opcional)
-
-
-## Instalaciones
-
-- yarn create vite
-- yarn (node_modules)
-- yarn add react-router-dom@6
+```bash
+project-name/
+├── node_modules             # Third party libraries
+├── public                   # 
+└── src                      # Root directory
+|  ├── assets                # App resources
+|  ├── components            # Common components
+|  ├── helpers               # Common functions
+|  ├── hooks                 # 
+|  ├── pages                 # All pages of app
+|  ├── routes                # Routes configuration
+|  ├── services              # Requests to the server
+|  ├── tests                 # Test all functionalities
+|  ├── App.tsx               # 
+|  ├── index.css             # 
+|  ├── main.tsx              # 
+|  └── vite-env.d.ts         # 
+├── .eslintrc.cjs           # Styleguide configuration
+├── .gitignore               # Files ignored at publish into github
+├── index.html               # 
+├── package.json             # 
+├── README.md                # 
+├── tsconfig.json            # 
+├── tsconfig.node.json       # 
+├── vite.config.js           # 
+```

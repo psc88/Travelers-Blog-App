@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Viajando por Argentina",
+      "author": "Pablo Castillo",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum."
+    },
+    {
+      "id": 2,
+      "title": "Viajando por Argentina",
+      "author": "Pablo Castillo",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum."
+    },
+    {
+      "id": 3,
+      "title": "Viajando por Argentina",
+      "author": "Pablo Castillo",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum."
+    },
+    {
+      "id": 4,
+      "title": "Viajando por Argentina",
+      "author": "Pablo Castillo",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum."
+    }
+  ]
+}

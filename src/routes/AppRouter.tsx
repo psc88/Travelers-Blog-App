@@ -1,8 +1,5 @@
 import { Route, Routes, Navigate } from 'react-router-dom'
-import { HomeBlog } from '../pages/HomeBlog'
-import { AdminPublication } from '../pages/AdminPublication'
-import { Authentication } from '../pages/Authentication'
-import { DetailPublication } from '../pages/DetailPublication'
+import { HomeBlog, AdminPublication, Authentication, DetailPublication } from '../pages'
 
 export const AppRouter = () => {
   return (

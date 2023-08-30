@@ -9,15 +9,15 @@ import {
   CardActions
 } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { red, grey } from '@mui/material/colors';
+import { colorTheme } from '../../theme';
 
 export const Cards = () => {
 
-  const colorRed = red[500];
-  const colorGrey = grey[900];
+  const colorRed = colorTheme.palette.error.main;
+  const colorPurple = colorTheme.palette.primary.main;
 
   return (
-    <Card sx={{ bgcolor: colorGrey, margin: 1 }}>
+    <Card sx={{ bgcolor: colorPurple, margin: 1 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: colorRed }} aria-label="recipe">

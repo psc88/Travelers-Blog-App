@@ -2,27 +2,48 @@
   "posts": [
     {
       "id": 1,
-      "title": "Viajando por Argentina",
+      "title": "Viajando por Patagonia",
       "author": "Pablo Castillo",
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum."
+      "description": "ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum.",
+      "datePublication": "27/08/2023",
+      "linkImage": "https://media.istockphoto.com/id/867132920/es/foto/glaciar-perito-moreno-en-la-patagonia.jpg?s=612x612&w=0&k=20&c=TnWgpJj_FEWfeCBKDsjDnl6nSZEs3CG2JgEzHC3zO8g=",
+      "liked": 15
     },
     {
       "id": 2,
-      "title": "Viajando por Argentina",
-      "author": "Pablo Castillo",
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum."
+      "title": "Viajando por Norte Jujeño",
+      "author": "Pedro Zapata",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum.",
+      "datePublication": "10/08/2023",
+      "linkImage": "https://media.istockphoto.com/id/1303686899/es/foto/paisaje-de-colores-en-purmamarca-jujuy-argentina.jpg?s=1024x1024&w=is&k=20&c=w1jZgshSzjXh8gXnTKQ9S69no-UEk5viuFdGU9dF56I=",
+      "liked": 400
     },
     {
-      "id": 3,
-      "title": "Viajando por Argentina",
-      "author": "Pablo Castillo",
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum."
+      "title": "Viaje por ahi",
+      "author": "Nico Flores",
+      "description": "Nuevo  primer posteo de un paisaje",
+      "datePublication": "30/08/2023",
+      "linkImage": "https://media.istockphoto.com/id/610883992/es/foto/vista-aérea-de-ushuaia-argentina.jpg?s=612x612&w=0&k=20&c=dei3CUgVIdLG3XS37EMGzPZmmOWcnrw_nxLv_cmkPtg=",
+      "liked": 0,
+      "id": 3
     },
     {
       "id": 4,
-      "title": "Viajando por Argentina",
+      "title": "Viajando por BsAs",
       "author": "Pablo Castillo",
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum."
+      "description": "ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum.",
+      "datePublication": "27/08/2023",
+      "linkImage": "https://media.istockphoto.com/id/867132920/es/foto/glaciar-perito-moreno-en-la-patagonia.jpg?s=612x612&w=0&k=20&c=TnWgpJj_FEWfeCBKDsjDnl6nSZEs3CG2JgEzHC3zO8g=",
+      "liked": 15
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Pablo",
+      "lastName": "Castillo",
+      "email": "pcastillo@gmail.com",
+      "password": "1234"
     }
   ]
 }

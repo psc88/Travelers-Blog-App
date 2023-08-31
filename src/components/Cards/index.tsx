@@ -6,13 +6,19 @@ import {
   IconButton,
   CardMedia,
   CardContent,
-  CardActions
+  CardActions,
+  Link,
+  Grid
 } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { colorTheme } from '../../theme';
+import { Link as RouterLink } from 'react-router-dom';
 
-export const Cards = () => {
+import './style.css'
 
+// FIXME: Problema de tipo de datos
+export const Cards = ({post}) => {
+  
   const colorRed = colorTheme.palette.error.main;
   const colorPurple = colorTheme.palette.primary.main;
 
@@ -24,27 +30,38 @@ export const Cards = () => {
             P
           </Avatar>
         }
-        title={<Typography color="white" >Pablo Castillo</Typography>}
-        subheader={<Typography color="white" >Agosto 29, 2023</Typography>}
+        title={<Typography color="white" >{post.author}</Typography>}
+        subheader={<Typography color="white" >{post.datePublication}</Typography>}
       />
       <CardMedia
         component="img"
-        height="194"
-        image="https://img.freepik.com/fotos-premium/campo-flores-arbol-primer-plano_865967-7108.jpg"
+        height="100%"
+        image={post.linkImage}
         alt="Paisaje"
       />
       <CardContent>
-        <Typography variant="body2" color="white">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum.
+        <Typography variant="body2" color="white" className='truncate-text'>
+          {post.description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon sx={{ color: colorRed }} />
-        </IconButton>
-        <Typography variant="h6" color="white">
-          {`1500 Me gusta`}
-        </Typography>
+        <Grid container direction="row" justifyContent="left">
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon sx={{ color: colorRed }} />
+          </IconButton>
+          <Typography variant="h6" color="white">
+            {`${post.liked} Me gusta`}
+          </Typography>
+        </Grid>
+        <Grid container direction="row" justifyContent="end">
+          <Link
+            component={RouterLink}
+            to="/detailpublication"
+            sx={{ color: 'white', mr: 3 }}
+          >
+            Leer mas
+          </Link>
+        </Grid>
       </CardActions>
     </Card>
   )

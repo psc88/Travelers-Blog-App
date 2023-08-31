@@ -15,7 +15,6 @@ export const useFetch = <T=unknown> (url: string) :State<T> => {
     })
 
     const getFetch = async () => {
-
         setState({
             ...state,
             isLoading: true,

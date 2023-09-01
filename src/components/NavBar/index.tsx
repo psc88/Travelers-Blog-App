@@ -33,27 +33,47 @@ export const NavBar = () => {
               <Typography sx={{ pl: 1 }}>Blog Viajeros</Typography>
               <NavBarDrawer />
             </>
-          ) : location.pathname === '/home' ? (
-            storedUser ? (
-              <>
-                <Tabs
-                  textColor='inherit'
-                  value={valueIndicationColor}
-                  indicatorColor='secondary'
-                  onChange={(e, valueIndicationColor) => setValueIndicationColor(valueIndicationColor)}
-                >
-                  <Tab label="Inicio" onClick={() => handleDirection('/home')} />
-                  <Tab label="Administrador" onClick={() => handleDirection('/detailpublication')} />
-                </Tabs>
-                <Tabs sx={{ marginLeft: "auto" }} value={0} textColor='inherit'>
-                  <Tab label={`Hola ${name}`} disableTouchRipple />
-                </Tabs>
-                <Button
-                  sx={{ marginLeft: 1 }}
-                  variant="contained"
-                  color="secondary"
-                  onClick={handleLogOut}>Cerrar sesión</Button>
-              </>
+          ) : location.pathname === '/home' ||
+            location.pathname === '/admin' ||
+            location.pathname === '/detailpublication'
+            ? (
+              storedUser ? (
+                <>
+                  <Tabs
+                    textColor='inherit'
+                    value={valueIndicationColor}
+                    indicatorColor='secondary'
+                    onChange={(e, valueIndicationColor) => setValueIndicationColor(valueIndicationColor)}
+                  >
+                    <Tab label="Inicio" onClick={() => handleDirection('/home')} />
+                    <Tab label="Administrador" onClick={() => handleDirection('/admin')} />
+                  </Tabs>
+                  <Tabs sx={{ marginLeft: "auto" }} value={0} textColor='inherit'>
+                    <Tab label={`Hola ${name}`} disableTouchRipple disabled />
+                  </Tabs>
+                  <Button
+                    sx={{ marginLeft: 1 }}
+                    variant="contained"
+                    color="secondary"
+                    onClick={handleLogOut}>Cerrar sesión</Button>
+                </>
+              ) : (
+                <>
+                  <Tabs
+                    textColor='inherit'
+                    value={valueIndicationColor}
+                    indicatorColor='secondary'
+                    onChange={(e, valueIndicationColor) => setValueIndicationColor(valueIndicationColor)}
+                  >
+                    <Tab label="Inicio" onClick={() => handleDirection('/home')} />
+                  </Tabs>
+                  <Button
+                    sx={{ marginLeft: "auto" }}
+                    variant="contained"
+                    color="secondary"
+                    onClick={() => handleDirection('/loginUser')}>Ingresar</Button>
+                </>
+              )
             ) : (
               <>
                 <Tabs
@@ -64,25 +84,8 @@ export const NavBar = () => {
                 >
                   <Tab label="Inicio" onClick={() => handleDirection('/home')} />
                 </Tabs>
-                <Button
-                  sx={{ marginLeft: "auto" }}
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => handleDirection('/loginUser')}>Ingresar</Button>
               </>
             )
-          ) : (
-            <>
-              <Tabs
-                textColor='inherit'
-                value={valueIndicationColor}
-                indicatorColor='secondary'
-                onChange={(e, valueIndicationColor) => setValueIndicationColor(valueIndicationColor)}
-              >
-                <Tab label="Inicio" onClick={() => handleDirection('/home')} />
-              </Tabs>
-            </>
-          )
         }
       </Toolbar>
     </AppBar>

@@ -25,18 +25,16 @@ export const AdminPublication = () => {
       console.log(error);
     }
   }
-  console.log(data);
-
 
   return (
     <>
       <AuthLayout title="Crear nueva publicación">
-        <CreatePosts />
+        <CreatePosts getApi={getApi}/>
         <Grid container justifyContent="center">
           <Typography variant="h5" sx={{ mt: 4 }}>Tus Publicaciones</Typography>
         </Grid>
           {
-            data?.map(post => <ListPosts key={post.id} post={post} />)
+            data?.map(post => <ListPosts key={post.id} post={post} idPublicationUrl={`${URL}/posts/${post.id}`} getApi={getApi} idPublication={post.id}/>)
           }
       </AuthLayout>
     </>

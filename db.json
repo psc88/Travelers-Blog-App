@@ -1,15 +1,6 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "Viajando por Patagonia",
-      "author": "Pablo Castillo",
-      "description": "ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum.",
-      "datePublication": "27/08/2023",
-      "linkImage": "https://media.istockphoto.com/id/867132920/es/foto/glaciar-perito-moreno-en-la-patagonia.jpg?s=612x612&w=0&k=20&c=TnWgpJj_FEWfeCBKDsjDnl6nSZEs3CG2JgEzHC3zO8g=",
-      "liked": 15
-    },
-    {
       "id": 2,
       "title": "Viajando por Norte Jujeño",
       "author": "Pedro Zapata",
@@ -28,12 +19,49 @@
       "id": 3
     },
     {
-      "title": "Nuevo viaje",
-      "description": "esstes es un nuevo viaje de todo jejeje",
+      "title": "Prueba espcios",
+      "description": "wvewvwev",
+      "linkImage": "https://media.istockphoto.com/id/867132920/es/foto/glaciar-perito-moreno-en-la-patagonia.jpg?s=612x612&w=0&k=20&c=TnWgpJj_FEWfeCBKDsjDnl6nSZEs3CG2JgEzHC3zO8g=",
+      "author": "Fernando sela",
+      "liked": 0,
+      "datePublication": "01/09/2023",
+      "id": 5
+    },
+    {
+      "title": "Prueba final",
+      "description": "esto es un comentario muy largo",
+      "linkImage": "https://media.istockphoto.com/id/867132920/es/foto/glaciar-perito-moreno-en-la-patagonia.jpg?s=612x612&w=0&k=20&c=TnWgpJj_FEWfeCBKDsjDnl6nSZEs3CG2JgEzHC3zO8g=",
+      "author": "Fernando sela",
+      "liked": 0,
+      "datePublication": "01/09/2023",
+      "id": 6
+    },
+    {
+      "title": "Prueba final de la final",
+      "description": "esto es un comentario muy largo",
+      "linkImage": "https://media.istockphoto.com/id/867132920/es/foto/glaciar-perito-moreno-en-la-patagonia.jpg?s=612x612&w=0&k=20&c=TnWgpJj_FEWfeCBKDsjDnl6nSZEs3CG2JgEzHC3zO8g=",
+      "author": "Fernando sela",
+      "liked": 0,
+      "datePublication": "01/09/2023",
+      "id": 7
+    },
+    {
+      "title": "vewvewevwvewvwvwevwe",
+      "description": "wvwewvwvewvwevwvwevewvewvwevwevewvwe",
+      "linkImage": "https://media.istockphoto.com/id/867132920/es/foto/glaciar-perito-moreno-en-la-patagonia.jpg?s=612x612&w=0&k=20&c=TnWgpJj_FEWfeCBKDsjDnl6nSZEs3CG2JgEzHC3zO8g=",
+      "author": "Fernando sela",
+      "liked": 0,
+      "datePublication": "01/09/2023",
+      "id": 8
+    },
+    {
+      "title": "Publicacion Nueva",
+      "description": "esta es una nuevaa publicacion",
       "linkImage": "https://media.istockphoto.com/id/867132920/es/foto/glaciar-perito-moreno-en-la-patagonia.jpg?s=612x612&w=0&k=20&c=TnWgpJj_FEWfeCBKDsjDnl6nSZEs3CG2JgEzHC3zO8g=",
       "author": "Pablo Castillo",
       "liked": 0,
-      "id": 4
+      "datePublication": "01/09/2023",
+      "id": 9
     }
   ],
   "users": [
@@ -42,12 +70,6 @@
       "name": "Pablo Castillo",
       "email": "pcastillo@gmail.com",
       "password": "1234"
-    },
-    {
-      "name": "Fernando sela",
-      "email": "fsela@gmail.com",
-      "password": "1234",
-      "id": 2
     }
   ]
 }

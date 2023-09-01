@@ -1,8 +1,8 @@
 import { useMediaQuery, useTheme } from '@mui/material'
 
-export const useMediaQueryTheme = () => {
+export const useMediaQueryTheme = (size: string) => {
   const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down("md"))
+  const isMatch = useMediaQuery(theme.breakpoints.down(size))
 
   return (
     isMatch

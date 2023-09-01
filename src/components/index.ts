@@ -1,5 +1,4 @@
 export * from './Footer'
 export * from './Cards'
-export * from './LoginUser'
 export * from './BreadCrumbs'
 export * from './NavBar'

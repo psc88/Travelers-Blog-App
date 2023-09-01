@@ -3,7 +3,6 @@ import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import { useState } from 'react';
 import { NavBarDrawer } from './NavBarDrawer';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { LoginUser } from '..';
 import { useMediaQueryTheme } from '../../hooks/useMediaQueryTheme';
 
 export const NavBar = () => {
@@ -12,8 +11,8 @@ export const NavBar = () => {
   const storedUser = sessionStorage.getItem('user');
   const location = useLocation();
   const navitate = useNavigate();
-  const { name, lastName } = JSON.parse(storedUser) || []
-  const theme = useMediaQueryTheme();
+  const { name } = JSON.parse(storedUser) || []
+  const theme = useMediaQueryTheme("md");
 
   const handleLogOut = () => {
     sessionStorage.removeItem('user');
@@ -47,7 +46,7 @@ export const NavBar = () => {
                   <Tab label="Administrador" onClick={() => handleDirection('/detailpublication')} />
                 </Tabs>
                 <Tabs sx={{ marginLeft: "auto" }} value={0} textColor='inherit'>
-                  <Tab label={`Hola ${name} ${lastName}`} disableTouchRipple />
+                  <Tab label={`Hola ${name}`} disableTouchRipple />
                 </Tabs>
                 <Button
                   sx={{ marginLeft: 1 }}
@@ -82,7 +81,6 @@ export const NavBar = () => {
               >
                 <Tab label="Inicio" onClick={() => handleDirection('/home')} />
               </Tabs>
-              <LoginUser />
             </>
           )
         }

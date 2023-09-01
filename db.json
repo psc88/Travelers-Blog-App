@@ -28,13 +28,12 @@
       "id": 3
     },
     {
-      "id": 4,
-      "title": "Viajando por BsAs",
-      "author": "Pablo Castillo",
-      "description": "ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni illum est rerum? Totam neque explicabo tempora architecto eius eos inventore quia accusamus sapiente quos, numquam harum nobis iusto unde cum.",
-      "datePublication": "27/08/2023",
+      "title": "Nuevo viaje",
+      "description": "esstes es un nuevo viaje de todo jejeje",
       "linkImage": "https://media.istockphoto.com/id/867132920/es/foto/glaciar-perito-moreno-en-la-patagonia.jpg?s=612x612&w=0&k=20&c=TnWgpJj_FEWfeCBKDsjDnl6nSZEs3CG2JgEzHC3zO8g=",
-      "liked": 15
+      "author": "Pablo Castillo",
+      "liked": 0,
+      "id": 4
     }
   ],
   "users": [
@@ -43,6 +42,12 @@
       "name": "Pablo Castillo",
       "email": "pcastillo@gmail.com",
       "password": "1234"
+    },
+    {
+      "name": "Fernando sela",
+      "email": "fsela@gmail.com",
+      "password": "1234",
+      "id": 2
     }
   ]
 }

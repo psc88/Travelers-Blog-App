@@ -10,7 +10,7 @@ export const HomeBlog = () => {
 
   return (
     <>
-      <Box sx={{ flexGrow: 1 }} margin={5}>
+      <Box marginTop={8}>
         <Grid container spacing={2}>
           <Grid item lg={8} md={6} sm={12} xs={12}>
             {

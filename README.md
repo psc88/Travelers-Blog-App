@@ -1,10 +1,3 @@
-<h1 align="center">Template: README</h1>
-
-<div align="center">
-  <p align="center">
-    A simple and straightforward README template.
-</div>
-
 ## About the project
 
 Travelers' Blog Application designed and intended for users who want to share their travel adventures from around the world, allowing them to view comments from other users and stay informed about the features of different places.
@@ -24,11 +17,6 @@ To get a local copy, clone it using:
 git clone https://github.com/psc88/Travelers-Blog-App.git
 ```
 
-```bash
-rm -rf .git && git init
-git add .
-git commit -m "Initial commit"
-```
 ### Install dependencies:
 
 ```bash
@@ -37,16 +25,20 @@ pnpm install
 yarn install
 #or
 npm install 
-#and
-yarn add react-router-dom@6
-#and
-yarn add --dev json-server
 ```
+
 ## How to test the application
 
-- Run the 'yarn dev' command.
-- Run the 'json-server --watch db.json --port 3000' command. Note: Please be aware that when running the application, it will by default take a port. Therefore, the port configured for the JSON server must be different from that of the app. If they happen to coincide, you must make the port change in the '.env' file
 
+| Script        | Description                                         |
+| ------------- | --------------------------------------------------- |
+| yarn start:server | Runs json server                       |
+| yarn dev      | Runs the app in the development mode.               |
+| yarn build    | Builds the app for production to the dist folder. |
+| yarn lint     | Runs eslint to see your errors |
+| yarn preview  | Run the application in production mode |
+
+Run the 'yarn start:server' command. Note: Please be aware that when running the application, it will by default take a port. Therefore, the port configured for the JSON server must be different from that of the app. If they happen to coincide, you must make the port change in the '.env' file and package.json file
 ## Base Dependencies
 
 - [react][react-url] create user interfaces from components.
@@ -61,7 +53,6 @@ project-name/
 ├── node_modules             # Third party libraries
 ├── public                   # 
 └── src                      # Root directory
-|  ├── assets                # App resources
 |  ├── components            # Common components
 |  ├── context               # 
 |  ├── helpers               # Common functions
@@ -80,19 +71,19 @@ project-name/
 ├── .gitignore               # Files ignored at publish into github
 ├── db.json                  # JSON-format data for the simulated database
 ├── index.html               # 
-├── package-lock.json        # 
 ├── package.json             # 
 ├── README.md                # 
 ├── tsconfig.json            # 
 ├── tsconfig.node.json       # 
 ├── vite.config.js           # 
+├── yarn.lock     yarn           # 
 ```
 
 [nodejs-url]: https://nodejs.org/en
 [react]: https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB
 [react-url]: https://react.dev/
 [yarn]:https://img.shields.io/badge/yarn-%232C8EBB.svg?style=for-the-badge&logo=yarn&logoColor=white
-[MUI]: https://img.shields.io/badge/MUI-MATERIAL%20UI-007FFF?style=for-the-badge&logo=MUI
+[MUI]: https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white
 [mui-url]: https://mui.com
 [yarn-url]: https://yarnpkg.com
 [ts]: https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white

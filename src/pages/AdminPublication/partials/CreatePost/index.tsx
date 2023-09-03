@@ -110,7 +110,7 @@ export const CreatePosts: FC<ICreatePosts> = ({ fetchUserPosts }) => {
         </Grid>
         <Grid item xs={12} sx={{ mt: 1 }}>
           <TextField
-            {...register("linkImage", { required: true, pattern: /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/ })}
+            {...register("linkImage", { required: true, pattern: /^https?:\/\/[\w-]+(\.[\w-]+)+[/#?]?.*$/ })}
             label="Link de la imagen"
             type='url'
             placeholder='https://image.com'

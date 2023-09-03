@@ -24,12 +24,15 @@ export const AuthLayout: FC<IAuthLayoutProps> = ({ children, title }) => {
           width: { md:600 },
           backgroundColor: 'white', 
           padding: 3, 
-          borderRadius: 2 
+          borderRadius: 2,
+          mt: 5 
         }}
       >
         <Grid container justifyContent="center">
           <Typography variant="h5" sx={{ mb: 1 }}>{title}</Typography>
-        </Grid>{children}
+        </Grid>
+        
+        {children}
       </Grid>
     </Grid>
   )

@@ -50,6 +50,7 @@ export const LoginUser = () => {
       const isValidPassword = user.password === data.password;
       if (isValidPassword) {
         setUserAuthenticated(user)
+        sessionStorage.setItem('user', JSON.stringify(user))
         Swal.fire(
           'Bienvenido',
           `${user.name}`,

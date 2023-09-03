@@ -36,7 +36,7 @@ export const Cards: FC<ICardsProps> =({ post }) => {
         />
         <CardMedia
           component="img"
-          height="100%"
+          height="500px"
           image={post.linkImage}
           alt="Paisaje"
         />

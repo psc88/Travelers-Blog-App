@@ -40,7 +40,6 @@ export const useFetch = <T = unknown>(url: string): State<T> => {
 
   useEffect(() => {
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
 
   return stateDataGet;

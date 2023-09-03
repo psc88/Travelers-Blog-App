@@ -23,10 +23,7 @@ export const NavBar = () => {
               <Typography sx={{ pl: 1 }}>Blog Viajeros</Typography>
               <NavBarDrawer />
             </>
-          ) : location.pathname === '/home' ||
-            location.pathname === '/admin' ||
-            location.pathname === '/detailpublication'
-            ? (
+          ) : (
               userAuthenticated.name ? (
                 <>
                   <Tabs
@@ -64,19 +61,7 @@ export const NavBar = () => {
                     onClick={() => navigate('/loginUser')}>Ingresar</Button>
                 </>
               )
-            ) : (
-              <>
-                <Tabs
-                  textColor='inherit'
-                  value={itemSelectionNavbar}
-                  indicatorColor='secondary'
-                  onChange={(_e, itemSelectionNavbar) => setItemSelectionNavbar(itemSelectionNavbar)}
-                >
-                  <Tab label="Inicio" onClick={() => navigate('/home')} />
-                  <Tab label="Administrador" onClick={() => navigate('/admin')} />
-                </Tabs>
-              </>
-            )
+            ) 
         }
       </Toolbar>
     </AppBar>

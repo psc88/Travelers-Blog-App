@@ -1,8 +1,9 @@
-import { Grid, TextField, Button, Typography } from "@mui/material";
-import { useForm } from "react-hook-form";
-import { GetCurrentDate } from "../../../../helpers/getDate";
-import { FC } from 'react';
-import Swal from "sweetalert2";
+import { FC,useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import { GetCurrentDate } from '../../../../helpers/getDate';
+import { UserContext } from '../../../../context/UserContext';
+import { Grid, TextField, Button, Typography } from '@mui/material';
+import Swal from 'sweetalert2';
 
 interface ICreatePosts {
   fetchUserPosts: () => Promise<void>;
@@ -19,14 +20,13 @@ interface ICreatePostsData {
 export const CreatePosts: FC<ICreatePosts> = ({ fetchUserPosts }) => {
 
   const URL = import.meta.env.VITE_REACT_APP_API_URL;
-  // FIXED: colocar contenxt api
-  const { name } = JSON.parse(sessionStorage.getItem('user'));
+  const { userAuthenticated } = useContext(UserContext)
   const datePublication = GetCurrentDate();
 
   const { handleSubmit, register, formState, reset } = useForm({
     defaultValues: {
       title: "",
-      author: name,
+      author: userAuthenticated.name,
       description: "",
       datePublication,
       linkImage: "",

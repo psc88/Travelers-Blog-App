@@ -1,13 +1,16 @@
 import { NavBar } from './components'
+import UserContextProvider from './context/UserContextProvider.js'
 import { AppRouter } from './routes/AppRouter.jsx'
 import { AppTheme } from './theme'
 
 function App() {
   return (
-    <AppTheme>
-      <NavBar />
-      <AppRouter />
-    </AppTheme>
+    <UserContextProvider>
+      <AppTheme>
+        <NavBar />
+        <AppRouter />
+      </AppTheme>
+    </UserContextProvider>
   )
 }
 

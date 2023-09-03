@@ -5,11 +5,15 @@ import {
   Typography,
   Link
 } from '@mui/material'
+import { useContext } from 'react'
 import { Link as RoterLink, useNavigate } from 'react-router-dom';
 import { useMediaQueryTheme } from '../../hooks/useMediaQueryTheme';
 import { AuthLayout } from '../../layout/AuthLayout';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import { UserContext } from '../../context/UserContext';
+import { useFetch } from '../../hooks/useFetch';
+import { User } from '../../interfaces/User.interface';
 interface ICreateUser {
   name: string;
   email: string;
@@ -17,8 +21,9 @@ interface ICreateUser {
 }
 
 export const CreateUser = () => {
+  const { setUserAuthenticated } = useContext(UserContext)
   const themeMediaQuery = useMediaQueryTheme("md");
-  const URL = import.meta.env.VITE_REACT_APP_API_URL;
+  const navigate = useNavigate();
   const { handleSubmit, register, formState } = useForm({
     defaultValues: {
       name: '',
@@ -26,23 +31,37 @@ export const CreateUser = () => {
       password: ''
     }
   });
-  const navigate = useNavigate();
+
+  const URL = import.meta.env.VITE_REACT_APP_API_URL;
+  const { data } = useFetch(`${URL}/users`)
+  const listUser = data as User[]
 
   const onSubmit = async (data: ICreateUser) => {
     try {
-      await fetch(`${URL}/users`, {
+      const emailExists = listUser?.some((user) => user.email === data.email);
+
+      if (emailExists) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Correo electrónico existente',
+          text: 'El correo electrónico ya está registrado. Por favor, utiliza otro.',
+        });
+        return;
+      }
+      const response = await fetch(`${URL}/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
       })
+      const userResponse = await response.json();
       Swal.fire(
         'Usuario creado correctamente',
         `${data.name}`,
         'success'
       )
-      sessionStorage.setItem('user', JSON.stringify(data))
+      setUserAuthenticated(userResponse);
       navigate('/home')
     } catch (error) {
       Swal.fire({
@@ -86,7 +105,7 @@ export const CreateUser = () => {
           </Grid>
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
-              {...register("password", { required: true , minLength: 4, maxLength: 25 })}
+              {...register("password", { required: true, minLength: 4, maxLength: 25 })}
               label="Contraseña"
               type='password'
               placeholder='correo@gmail.com'

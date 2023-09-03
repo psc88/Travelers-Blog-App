@@ -1,25 +1,17 @@
 import { AppBar, Toolbar, Tabs, Tab, Button, Typography } from '@mui/material'
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useMediaQueryTheme } from '../../hooks/useMediaQueryTheme';
 import { NavBarDrawer } from './partials/NavBarDrawer';
+import { UserContext } from '../../context/UserContext';
 
 export const NavBar = () => {
   const [itemSelectionNavbar, setItemSelectionNavbar] = useState(0)
   const location = useLocation();
   const navigate = useNavigate();
   const themeMediaQuery = useMediaQueryTheme("md");
-
-  const storedUser = sessionStorage.getItem('user');
-  // FIXED: colocar contextApi
-  const { name } = JSON.parse(storedUser) || []
-  
-
-  const handleLogOut = () => {
-    sessionStorage.removeItem('user');
-    navigate('/loginUser');
-  }
+  const {userAuthenticated, logout} = useContext(UserContext)  
 
   return (
     <AppBar color='primary'>
@@ -35,25 +27,25 @@ export const NavBar = () => {
             location.pathname === '/admin' ||
             location.pathname === '/detailpublication'
             ? (
-              storedUser ? (
+              userAuthenticated.name ? (
                 <>
                   <Tabs
                     textColor='inherit'
                     value={itemSelectionNavbar}
                     indicatorColor='secondary'
-                    onChange={(e, itemSelectionNavbar) => setItemSelectionNavbar(itemSelectionNavbar)}
+                    onChange={(_e, itemSelectionNavbar) => setItemSelectionNavbar(itemSelectionNavbar)}
                   >
                     <Tab label="Inicio" onClick={() => navigate('/home')} />
                     <Tab label="Administrador" onClick={() => navigate('/admin')} />
                   </Tabs>
                   <Tabs sx={{ marginLeft: "auto" }} value={0} textColor='inherit'>
-                    <Tab label={`Hola ${name}`} disableTouchRipple disabled />
+                    <Tab label={`Hola ${userAuthenticated.name}`} disableTouchRipple disabled />
                   </Tabs>
                   <Button
                     sx={{ marginLeft: 1 }}
                     variant="contained"
                     color="secondary"
-                    onClick={handleLogOut}>Cerrar sesión</Button>
+                    onClick={logout}>Cerrar sesión</Button>
                 </>
               ) : (
                 <>
@@ -61,7 +53,7 @@ export const NavBar = () => {
                     textColor='inherit'
                     value={itemSelectionNavbar}
                     indicatorColor='secondary'
-                    onChange={(e, itemSelectionNavbar) => setItemSelectionNavbar(itemSelectionNavbar)}
+                    onChange={(_e, itemSelectionNavbar) => setItemSelectionNavbar(itemSelectionNavbar)}
                   >
                     <Tab label="Inicio" onClick={() => navigate('/home')} />
                   </Tabs>
@@ -76,9 +68,8 @@ export const NavBar = () => {
               <>
                 <Tabs
                   textColor='inherit'
-                  value={itemSelectionNavbar}
-                  indicatorColor='secondary'
-                  onChange={(e, itemSelectionNavbar) => setItemSelectionNavbar(itemSelectionNavbar)}
+                  value={0}
+                  indicatorColor='primary'
                 >
                   <Tab label="Inicio" onClick={() => navigate('/home')} />
                 </Tabs>

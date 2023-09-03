@@ -1,20 +1,19 @@
 import { Post } from "../interfaces/Posts.interface";
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { getData } from "../services/getData";
+import { UserContext } from "../context/UserContext";
 
 
 const usePosts = () => {
 
   const [userPost, setUserPost] = useState<Post[]>([])
-  
-  const storedUser = sessionStorage.getItem('user');
-  const { name } = JSON.parse(storedUser) || []
-  
+  const {userAuthenticated} = useContext(UserContext)
   const URL = import.meta.env.VITE_REACT_APP_API_URL;
+  
   const fetchUserPosts = async () => {
     try {
       const posts = await getData<Post[]>(`${URL}/posts`);
-      const filteredPostsByUser = posts.filter(post => post.author === name)
+      const filteredPostsByUser = posts.filter(post => post.author === userAuthenticated.name)
 
       setUserPost(filteredPostsByUser)
     } catch (error) {

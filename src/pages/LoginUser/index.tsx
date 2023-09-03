@@ -11,6 +11,8 @@ import { AuthLayout } from '../../layout/AuthLayout';
 import { useForm } from "react-hook-form"
 import Swal from 'sweetalert2';
 import { User } from '../../interfaces/User.interface';
+import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
 
 interface IUserLogin {
   email: string;
@@ -18,15 +20,17 @@ interface IUserLogin {
 }
 
 export const LoginUser = () => {
+  const { setUserAuthenticated } = useContext(UserContext)
   const URL = import.meta.env.VITE_REACT_APP_API_URL;
   const themeMediaQuery = useMediaQueryTheme("md");
+  const navigate = useNavigate();
+  
   const { handleSubmit, register, formState } = useForm({
     defaultValues: {
       email: "",
       password: ""
     }
   });
-  const navigate = useNavigate();
 
   const onSubmit = async (data: IUserLogin) => {
     try {
@@ -45,7 +49,7 @@ export const LoginUser = () => {
       }
       const isValidPassword = user.password === data.password;
       if (isValidPassword) {
-        sessionStorage.setItem('user', JSON.stringify(user))
+        setUserAuthenticated(user)
         Swal.fire(
           'Bienvenido',
           `${user.name}`,

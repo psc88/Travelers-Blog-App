@@ -68,10 +68,12 @@ export const NavBar = () => {
               <>
                 <Tabs
                   textColor='inherit'
-                  value={0}
-                  indicatorColor='primary'
+                  value={itemSelectionNavbar}
+                  indicatorColor='secondary'
+                  onChange={(_e, itemSelectionNavbar) => setItemSelectionNavbar(itemSelectionNavbar)}
                 >
                   <Tab label="Inicio" onClick={() => navigate('/home')} />
+                  <Tab label="Administrador" onClick={() => navigate('/admin')} />
                 </Tabs>
               </>
             )

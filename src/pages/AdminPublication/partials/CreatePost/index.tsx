@@ -1,36 +1,49 @@
-import { Grid, TextField, Button, Typography  } from "@mui/material"
+import { Grid, TextField, Button, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { GetCurrentDate } from "./getDate";
+import { GetCurrentDate } from "../../../../helpers/getDate";
+import { FC } from 'react';
 import Swal from "sweetalert2";
 
-export const CreatePosts = ({ getApi }) => {
+interface ICreatePosts {
+  fetchUserPosts: () => Promise<void>;
+}
+interface ICreatePostsData {
+  title: string;
+  author: string
+  description: string;
+  datePublication: string;
+  linkImage: string;
+  liked: number;
+}
+
+export const CreatePosts: FC<ICreatePosts> = ({ fetchUserPosts }) => {
 
   const URL = import.meta.env.VITE_REACT_APP_API_URL;
-  const { handleSubmit, register, formState } = useForm();
-  const datePublication = GetCurrentDate();
+  // FIXED: colocar contenxt api
   const { name } = JSON.parse(sessionStorage.getItem('user'));
+  const datePublication = GetCurrentDate();
 
-  const onSubmit = async (data) => {
+  const { handleSubmit, register, formState, reset } = useForm({
+    defaultValues: {
+      title: "",
+      author: name,
+      description: "",
+      datePublication,
+      linkImage: "",
+      liked: 0
+    }
+  });
 
-    const trimmed = {
+  const onSubmit = async (data: ICreatePostsData) => {
+    const postData = {
+      ...data,
       title: data.title.trim(),
       description: data.description.trim(),
-      linkImage: data.linkImage.trim()
+      linkImage: data.linkImage.trim(),
     }
 
-    const additionalData = {
-      author: name,
-      liked: 0,
-      datePublication: datePublication
-    };
-
-    const postData = {
-      ...trimmed,
-      ...additionalData,
-    };
-
     try {
-      const response = await fetch(`${URL}/posts`, {
+      await fetch(`${URL}/posts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -42,7 +55,8 @@ export const CreatePosts = ({ getApi }) => {
         `${postData.title}`,
         'success'
       )
-      getApi();
+      reset();
+      fetchUserPosts();
     } catch (error) {
       Swal.fire({
         icon: 'error',

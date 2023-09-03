@@ -1,42 +1,33 @@
-import { Typography, List, Grid } from "@mui/material"
-import { CreatePosts } from "./CreatePosts"
 import { AuthLayout } from "../../layout/AuthLayout";
-import { useEffect, useState } from "react";
-import { ListPosts } from "./ListPosts";
-
+import { CreatePosts } from "./partials/CreatePost";
+import { ListPostsUser } from "./partials/ListPostsUser";
+import { TitleComponent } from "../../components";
+import usePosts from "../../hooks/usePosts";
 
 export const AdminPublication = () => {
-  const [data, setData] = useState([])
+
+  const {fetchUserPosts, userPost} = usePosts();
   const URL = import.meta.env.VITE_REACT_APP_API_URL;
-  const storedUser = sessionStorage.getItem('user');
-  const { name } = JSON.parse(storedUser) || []
-
-  useEffect(() => {
-    getApi();
-  }, [])
-
-  const getApi = async () => {
-    try {
-      const response = await fetch(`${URL}/posts`);
-      const data = await response.json();
-      const filteredData = data?.filter(post => post.author === name);
-      setData(filteredData)
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   return (
-    <>
-      <AuthLayout title="Crear nueva publicación">
-        <CreatePosts getApi={getApi}/>
-        <Grid container justifyContent="center">
-          <Typography variant="h5" sx={{ mt: 4 }}>Tus Publicaciones</Typography>
-        </Grid>
-          {
-            data?.map(post => <ListPosts key={post.id} post={post} idPublicationUrl={`${URL}/posts/${post.id}`} getApi={getApi} idPublication={post.id}/>)
-          }
-      </AuthLayout>
-    </>
+    <AuthLayout title="Crear nueva publicación">
+      <CreatePosts fetchUserPosts={fetchUserPosts} />
+      <TitleComponent title="Tus Publicaciones"/>
+      {
+        userPost?.length > 0 ? (
+          userPost?.map((post) => (
+            <ListPostsUser
+              key={post.id}
+              post={post}
+              idPublicationUrl={`${URL}/posts/${post.id}`}
+              fetchUserPosts={fetchUserPosts}
+              idPublication={post.id}
+            />
+          ))
+        ) : (
+          <TitleComponent title="Reliza tu primera publicación"/>
+        )
+      }
+    </AuthLayout>
   )
 }

@@ -1,72 +1,58 @@
 import { Typography, Grid, TextField, Button, Link } from "@mui/material"
-import { useEffect, useState } from "react";
 import { AuthLayout } from "../../layout/AuthLayout";
 import { useForm } from "react-hook-form";
 import { useParams, useNavigate, Link as RoterLink } from "react-router-dom";
 import Swal from "sweetalert2";
+import usePostsById from "../../hooks/usePostsById";
+import {useEffect} from 'react'
 
+interface IEditPost {
+  title: string;
+  author: string;
+  description: string;
+  datePublication: string;
+  linkImage: string;
+  liked: number;
+}
 
 export const EditPublication = () => {
-  const navigate = useNavigate();
-  const [dataPost, setdataPost] = useState({
-    title: "",
-    author: "",
-    description: "",
-    datePublication: "",
-    linkImage: "",
-    liked: 0
-  })
-  const { handleSubmit, register, formState } = useForm();
-  const { id } = useParams()
   const URL = `${import.meta.env.VITE_REACT_APP_API_URL}/posts`;
+  const navigate = useNavigate();
+  const { id = "0" } = useParams()
+  const { userPost } = usePostsById(id)
+  
 
-  useEffect(() => {
-    getApi();
-  }, [])
-
-  const getApi = async () => {
-    try {
-      const response = await fetch(URL);
-      const posts = await response.json();
-      const filteredData = posts?.find(post => post.id === parseInt(id));
-      const { title, author, description, datePublication, linkImage, liked } = filteredData
-      setdataPost({ title, author, description, datePublication, linkImage, liked })
-    } catch (error) {
-      console.log(error);
+  const { handleSubmit, register, formState, reset } = useForm({
+    defaultValues: {
+      title: userPost?.title ?? "",
+      author: userPost?.author ?? "",
+      description: userPost?.description ?? "",
+      datePublication: userPost?.datePublication ?? "",
+      linkImage: userPost?.linkImage ?? "",
+      liked: userPost?.liked ?? 0,
     }
-  }
+  });
 
-  const onSubmit = async (data) => {
-    const trimmed = {
+  const onSubmit = async (data: IEditPost) => {
+    const postData = {
+      ...data,
       title: data.title.trim(),
       description: data.description.trim(),
       linkImage: data.linkImage.trim()
     }
 
-    const additionalData = {
-      author: dataPost.author,
-      liked: dataPost.liked,
-      datePublication: dataPost.datePublication
-    };
-
-    const postData = {
-      ...trimmed,
-      ...additionalData,
-    };
-
     try {
-      const response = await fetch(`${URL}/${id}`, {
+      await fetch(`${URL}/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(postData)
       })
-      console.log(response);
 
       Swal.fire(
         '¡¡Cambios guardados!!',
-        `${trimmed.title}`,
+        `${postData.title}`,
         'success'
       )
       navigate('/admin')
@@ -80,6 +66,24 @@ export const EditPublication = () => {
     }
   }
 
+  useEffect(() => {
+    if (userPost) {
+      reset({
+        title: userPost.title,
+        author: userPost.author,
+        description: userPost.description,
+        datePublication: userPost.datePublication,
+        linkImage: userPost.linkImage,
+        liked: userPost.liked
+      });
+    }
+  }, [userPost])
+  
+
+  if (!userPost) {
+    return null
+  }
+
   return (
     <>
       <AuthLayout title="Editar publicación">
@@ -88,11 +92,10 @@ export const EditPublication = () => {
             <Grid item xs={12} sm={6} sx={{ mt: 1 }}>
               <TextField
                 {...register("title", { required: true, minLength: 4, maxLength: 20, pattern: /^[a-zA-Z\s]+$/ })}
-                defaultValue={dataPost.title}
+                label='Titulo'
+                defaultValue={userPost.title}
                 type='text'
-                placeholder='Titulo'
                 fullWidth
-                multiline
               />
               {formState?.errors?.title?.type === "required" && <Typography color="red">El campo Titulo es requerido</Typography>}
               {formState?.errors?.title?.type === "minLength" && <Typography color="red">Debe contener al menos 4 caracteres</Typography>}
@@ -102,7 +105,8 @@ export const EditPublication = () => {
             <Grid item xs={12} sm={6} sx={{ mt: 1 }}>
               <TextField
                 {...register("datePublication")}
-                defaultValue={dataPost.datePublication}
+                label="Fecha"
+                defaultValue={userPost.datePublication}
                 type='text'
                 placeholder='01/01/2000'
                 disabled
@@ -113,7 +117,8 @@ export const EditPublication = () => {
             <Grid item xs={12} sx={{ mt: 2 }}>
               <TextField
                 {...register("description", { required: true, minLength: 20, maxLength: 1000 })}
-                defaultValue={dataPost.description}
+                label="Comentario"
+                defaultValue={userPost.description}
                 type='text'
                 placeholder='Descripción'
                 rows={6}
@@ -126,8 +131,9 @@ export const EditPublication = () => {
             </Grid>
             <Grid item xs={12} sx={{ mt: 1 }}>
               <TextField
-                {...register("linkImage", { required: true, pattern: /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/ })}
-                defaultValue={dataPost.linkImage}
+                {...register("linkImage", { required: true, pattern: /^https?:\/\/[\w-]+(\.[\w-]+)+[/#?]?.*$/ })}
+                label="Link de la imagen"
+                defaultValue={userPost.linkImage}
                 type='url'
                 placeholder='Link de la imagen'
                 fullWidth
@@ -141,7 +147,7 @@ export const EditPublication = () => {
                 <Button type='submit' variant='contained' fullWidth>
                   Guardar cambios
                 </Button>
-                <Grid container justifyContent="center" alignItems="center" sx={{ mt:1 }}>
+                <Grid container justifyContent="center" alignItems="center" sx={{ mt: 1 }}>
                   <Link component={RoterLink} to="/admin">Regresar</Link>
                 </Grid>
               </Grid>

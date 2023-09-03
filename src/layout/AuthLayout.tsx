@@ -1,6 +1,12 @@
 import { Grid, Typography } from '@mui/material'
+import { FC, ReactNode } from 'react';
 
-export const AuthLayout = ({ children, title }) => {
+interface IAuthLayoutProps {
+  children: ReactNode | ReactNode[];
+  title: string;
+}
+
+export const AuthLayout: FC<IAuthLayoutProps> = ({ children, title }) => {
   return (
     <Grid
       container
@@ -23,10 +29,7 @@ export const AuthLayout = ({ children, title }) => {
       >
         <Grid container justifyContent="center">
           <Typography variant="h5" sx={{ mb: 1 }}>{title}</Typography>
-        </Grid>
-        {
-          children
-        }
+        </Grid>{children}
       </Grid>
     </Grid>
   )

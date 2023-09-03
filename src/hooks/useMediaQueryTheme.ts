@@ -1,6 +1,6 @@
-import { useMediaQuery, useTheme } from '@mui/material'
+import { Breakpoint, useMediaQuery, useTheme } from '@mui/material'
 
-export const useMediaQueryTheme = (size: string) => {
+export const useMediaQueryTheme = (size: number | Breakpoint) => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down(size))
 

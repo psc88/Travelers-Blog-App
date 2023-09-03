@@ -1,44 +1,47 @@
 import { useEffect, useState } from "react";
 
 interface State<T> {
-    data?: T
-    isLoading: boolean
-    hasError: null
+  data?: T;
+  isLoading: boolean;
+  hasError: Error | null | unknown;
 }
 
-export const useFetch = <T=unknown> (url: string) :State<T> => {
+export const useFetch = <T = unknown>(url: string): State<T> => {
+  const [stateDataGet, setStateDataGet] = useState<State<T>>({
+    data: undefined,
+    isLoading: true,
+    hasError: null,
+  });
 
-    const [state, setState] = useState({
-        data: undefined,
+  const fetchData = async () => {
+    try {
+      setStateDataGet((prevState) => ({
+        ...prevState,
         isLoading: true,
         hasError: null,
-    })
+      }));
 
-    const getFetch = async () => {
-        setState({
-            ...state,
-            isLoading: true,
-            hasError: null,
-        })
+      const response = await fetch(url);
+      const data = await response.json();
 
-        const resp = await fetch(url);
-        const data = await resp.json();
-
-        setState({
-            data,
-            isLoading: false,
-            hasError: null,
-        })
+      setStateDataGet({
+        data,
+        isLoading: false,
+        hasError: null,
+      });
+    } catch (error) {
+      setStateDataGet({
+        data: undefined,
+        isLoading: false,
+        hasError: error,
+      });
     }
+  };
 
-    useEffect(() => {
-        getFetch();
-    }, [url])
+  useEffect(() => {
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [url]);
 
-
-    return {
-        data: state.data,
-        isLoading: state.isLoading,
-        hasError: state.hasError,
-    };
-}
+  return stateDataGet;
+};

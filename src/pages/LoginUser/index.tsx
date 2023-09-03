@@ -10,17 +10,28 @@ import { useMediaQueryTheme } from '../../hooks/useMediaQueryTheme';
 import { AuthLayout } from '../../layout/AuthLayout';
 import { useForm } from "react-hook-form"
 import Swal from 'sweetalert2';
+import { User } from '../../interfaces/User.interface';
+
+interface IUserLogin {
+  email: string;
+  password: string;
+}
 
 export const LoginUser = () => {
   const URL = import.meta.env.VITE_REACT_APP_API_URL;
-  const theme = useMediaQueryTheme("md");
-  const { handleSubmit, register, formState } = useForm();
+  const themeMediaQuery = useMediaQueryTheme("md");
+  const { handleSubmit, register, formState } = useForm({
+    defaultValues: {
+      email: "",
+      password: ""
+    }
+  });
   const navigate = useNavigate();
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: IUserLogin) => {
     try {
       const response = await fetch(`${URL}/users`)
-      const users: any[] = await response.json()
+      const users: User[] = await response.json()
       const user = users.find(user => user.email === data.email)
       
       if (!user) {
@@ -55,31 +66,33 @@ export const LoginUser = () => {
   }
 
   return (
-
     <AuthLayout title="Ingresa con tu usuario">
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container>
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
-              {...register("email", { required: true, pattern: /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/, minLength: 2 })}
+              {...register("email", { required: true, pattern: /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/, minLength: 5, maxLength: 256 })}
               label="Correo"
               type='email'
               placeholder='correo@gmail.com'
               fullWidth
             />
-            {formState?.errors?.email?.type === "required" && <span>El campo email es requerido</span>}
-            {formState?.errors?.email?.type === "pattern" && <span>Correo incorrecto</span>}
+            {formState?.errors?.email?.type === "required" && <Typography color="red">El campo email es requerido</Typography>}
+            {formState?.errors?.email?.type === "pattern" && <Typography color="red">Correo no valido</Typography>}
+            {formState?.errors?.email?.type === "minLength" && <Typography color="red">Debe superar los 5 caracteres</Typography>}
+            {formState?.errors?.email?.type === "maxLength" && <Typography color="red">No debe superar los 256 caracteres</Typography>}
           </Grid>
           <Grid item xs={12} sx={{ mt: 2 }}>
             <TextField
-              {...register("password", { required: true, minLength: 2 })}
+              {...register("password", { required: true, minLength: 4, maxLength: 25 })}
               label="Contraseña"
               type='password'
               placeholder='1234ABC'
               fullWidth
             />
-            {formState?.errors?.email?.type === "required" && <span>El campo email es requerido</span>}
-            {formState?.errors?.email?.type === "pattern" && <span>Correo incorrecto</span>}
+            {formState?.errors?.password?.type === "required" && <Typography color="red">El campo contraseña es requerido</Typography>}
+            {formState?.errors?.password?.type === "minLength" && <Typography color="red">Debe superar los 4 caracteres</Typography>}
+            {formState?.errors?.password?.type === "maxLength" && <Typography color="red">No debe superar los 25 caracteres</Typography>}
           </Grid>
           <Grid container spacing={2} sx={{ mt: 1 }}>
             <Grid item xs={12}>
@@ -89,7 +102,7 @@ export const LoginUser = () => {
             </Grid>
             <Grid container justifyContent="end" sx={{ mt: 1 }}>
               {
-                theme ? (
+                themeMediaQuery ? (
                   <Grid container direction="column" alignItems="center">
                     <Typography variant="inherit" color="initial">¿No tienes una cuenta?</Typography>
                     <Link component={RoterLink} to="/createUser">Crear cuenta</Link>

@@ -1,4 +1,4 @@
-.truncate-text {
+.truncate-text-list {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -1,26 +1,24 @@
 import { AppBar, Toolbar, Tabs, Tab, Button, Typography } from '@mui/material'
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import { useState } from 'react';
-import { NavBarDrawer } from './NavBarDrawer';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useMediaQueryTheme } from '../../hooks/useMediaQueryTheme';
+import { NavBarDrawer } from './partials/NavBarDrawer';
 
 export const NavBar = () => {
-  const [valueIndicationColor, setValueIndicationColor] = useState(0)
+  const [itemSelectionNavbar, setItemSelectionNavbar] = useState(0)
+  const location = useLocation();
+  const navigate = useNavigate();
+  const themeMediaQuery = useMediaQueryTheme("md");
 
   const storedUser = sessionStorage.getItem('user');
-  const location = useLocation();
-  const navitate = useNavigate();
+  // FIXED: colocar contextApi
   const { name } = JSON.parse(storedUser) || []
-  const theme = useMediaQueryTheme("md");
+  
 
   const handleLogOut = () => {
     sessionStorage.removeItem('user');
-    navitate('/loginUser');
-  }
-
-  const handleDirection = (direction: string) => {
-    navitate(direction);
+    navigate('/loginUser');
   }
 
   return (
@@ -28,7 +26,7 @@ export const NavBar = () => {
       <Toolbar>
         <TravelExploreIcon />
         {
-          theme ? (
+          themeMediaQuery ? (
             <>
               <Typography sx={{ pl: 1 }}>Blog Viajeros</Typography>
               <NavBarDrawer />
@@ -41,12 +39,12 @@ export const NavBar = () => {
                 <>
                   <Tabs
                     textColor='inherit'
-                    value={valueIndicationColor}
+                    value={itemSelectionNavbar}
                     indicatorColor='secondary'
-                    onChange={(e, valueIndicationColor) => setValueIndicationColor(valueIndicationColor)}
+                    onChange={(e, itemSelectionNavbar) => setItemSelectionNavbar(itemSelectionNavbar)}
                   >
-                    <Tab label="Inicio" onClick={() => handleDirection('/home')} />
-                    <Tab label="Administrador" onClick={() => handleDirection('/admin')} />
+                    <Tab label="Inicio" onClick={() => navigate('/home')} />
+                    <Tab label="Administrador" onClick={() => navigate('/admin')} />
                   </Tabs>
                   <Tabs sx={{ marginLeft: "auto" }} value={0} textColor='inherit'>
                     <Tab label={`Hola ${name}`} disableTouchRipple disabled />
@@ -61,28 +59,28 @@ export const NavBar = () => {
                 <>
                   <Tabs
                     textColor='inherit'
-                    value={valueIndicationColor}
+                    value={itemSelectionNavbar}
                     indicatorColor='secondary'
-                    onChange={(e, valueIndicationColor) => setValueIndicationColor(valueIndicationColor)}
+                    onChange={(e, itemSelectionNavbar) => setItemSelectionNavbar(itemSelectionNavbar)}
                   >
-                    <Tab label="Inicio" onClick={() => handleDirection('/home')} />
+                    <Tab label="Inicio" onClick={() => navigate('/home')} />
                   </Tabs>
                   <Button
                     sx={{ marginLeft: "auto" }}
                     variant="contained"
                     color="secondary"
-                    onClick={() => handleDirection('/loginUser')}>Ingresar</Button>
+                    onClick={() => navigate('/loginUser')}>Ingresar</Button>
                 </>
               )
             ) : (
               <>
                 <Tabs
                   textColor='inherit'
-                  value={valueIndicationColor}
+                  value={itemSelectionNavbar}
                   indicatorColor='secondary'
-                  onChange={(e, valueIndicationColor) => setValueIndicationColor(valueIndicationColor)}
+                  onChange={(e, itemSelectionNavbar) => setItemSelectionNavbar(itemSelectionNavbar)}
                 >
-                  <Tab label="Inicio" onClick={() => handleDirection('/home')} />
+                  <Tab label="Inicio" onClick={() => navigate('/home')} />
                 </Tabs>
               </>
             )

@@ -1,4 +1,4 @@
-.truncate-text {
+.truncate-text-card {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

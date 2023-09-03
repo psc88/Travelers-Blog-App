@@ -1,27 +1,45 @@
 import { Box, Grid, Typography } from "@mui/material"
-import { Cards } from "../../components"
-import { useFetch } from '../../hooks/useFetch';
+import { Cards } from "../HomeBlog/partials/Cards"
+import { useMediaQueryTheme } from "../../hooks/useMediaQueryTheme";
 import { Post } from "../../interfaces/Posts.interface";
+import { AuthLayout } from '../../layout/AuthLayout';
+import { useFetch } from '../../hooks/useFetch';
 
 export const HomeBlog = () => {
-
+  const themeMediaQuery = useMediaQueryTheme("md")
   const URL = import.meta.env.VITE_REACT_APP_API_URL;
   const { data } = useFetch<Post[]>(`${URL}/posts`);
 
   return (
     <>
       <Box marginTop={8}>
-        <Grid container spacing={2}>
-          <Grid item lg={8} md={6} sm={12} xs={12}>
-            {
-              data?.map(post => <Cards key={post.id} post={post}/>)
-            }
-          </Grid>
-          <Grid item lg={4} md={6} sm={12} xs={12}>
-            <Typography className='fs-3'>xs=8</Typography>
-          </Grid>
-        </Grid>
-      </Box>
+        {
+          data?.length === 0 ? (
+            <AuthLayout title='ERROR 404'>
+              <Grid container justifyContent="center" alignItems="center">
+                <Typography variant="h4" gutterBottom>
+                  Sin Publicaciones
+                </Typography>
+              </Grid>
+            </AuthLayout>
+          ) :
+            themeMediaQuery ? (
+              <Grid container>
+                <Grid item lg={8} md={6} xs={12}>
+                  {
+                    data?.map(post => <Cards key={post.id} post={post} />)
+                  }
+                </Grid>
+              </Grid>
+            ) : (
+              <Grid container>
+                {
+                  data?.map(post => <Cards key={post.id} post={post} />)
+                }
+              </Grid>
+            )
+        }
+      </Box >
     </>
   )
 }

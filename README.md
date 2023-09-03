@@ -12,17 +12,16 @@ Travelers' Blog Application designed and intended for users who want to share th
 ### Technologies used
 [![react][react]][react-url]
 [![typescript][ts]][ts-url]
-[![jest][jest]][jest-url]
-[![react-testing-library][react-testing-library]][react-testing-library-url]
-[![Material-UI][mui]][mui-url]
-[![Json Server][json-server]][json-server-url]
+[![MUI][MUI]][mui-url]
+[![Yarn][yarn]][yarn-url]
+[![vite][vite]][vite-url]
 
 ## Development
 
 ### Make it your own
 To get a local copy, clone it using:
 ```bash
-git clone https://github.com/psc88/blog-travellers.git
+git clone https://github.com/psc88/Travelers-Blog-App.git
 ```
 
 ```bash
@@ -40,14 +39,21 @@ yarn install
 npm install 
 #and
 yarn add react-router-dom@6
+#and
+yarn add --dev json-server
 ```
+## How to test the application
+
+- Run the 'yarn dev' command.
+- Run the 'json-server --watch db.json --port 3000' command. Note: Please be aware that when running the application, it will by default take a port. Therefore, the port configured for the JSON server must be different from that of the app. If they happen to coincide, you must make the port change in the '.env' file
+
 ## Base Dependencies
 
 - [react][react-url] create user interfaces from components.
-- [Material-UI][mui-url] for stylesheets.
-- [jest][jest-url] and [react-testing-library][react-testing-library] for testing.
+- [MUI][mui-url] for stylesheets.
 - [json-server][json-server-url] Library that allows simulating APIs.
- 
+- [react-hook-form][react-hook-form-url] React form management library that is based on the use of Hooks
+- [sweet-alert2][sweet-url] For managing alert messages 
 ## Folder Structure
 
 ```bash
@@ -57,22 +63,42 @@ project-name/
 └── src                      # Root directory
 |  ├── assets                # App resources
 |  ├── components            # Common components
+|  ├── context               # 
 |  ├── helpers               # Common functions
 |  ├── hooks                 # 
+|  ├── interfaces            # Data interfaces
+|  ├── layaout               # Common layaout of app
 |  ├── pages                 # All pages of app
 |  ├── routes                # Routes configuration
 |  ├── services              # Requests to the server
-|  ├── tests                 # Test all functionalities
+|  ├── theme                 # Common theme of the Material UI app
 |  ├── App.tsx               # 
 |  ├── index.css             # 
 |  ├── main.tsx              # 
 |  └── vite-env.d.ts         # 
-├── .eslintrc.cjs           # Styleguide configuration
+├── .eslintrc.cjs            # Styleguide configuration
 ├── .gitignore               # Files ignored at publish into github
+├── db.json                  # JSON-format data for the simulated database
 ├── index.html               # 
+├── package-lock.json        # 
 ├── package.json             # 
 ├── README.md                # 
 ├── tsconfig.json            # 
 ├── tsconfig.node.json       # 
 ├── vite.config.js           # 
 ```
+
+[nodejs-url]: https://nodejs.org/en
+[react]: https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB
+[react-url]: https://react.dev/
+[yarn]:https://img.shields.io/badge/yarn-%232C8EBB.svg?style=for-the-badge&logo=yarn&logoColor=white
+[MUI]: https://img.shields.io/badge/MUI-MATERIAL%20UI-007FFF?style=for-the-badge&logo=MUI
+[mui-url]: https://mui.com
+[yarn-url]: https://yarnpkg.com
+[ts]: https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white
+[ts-url]: https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white
+[vite]: https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white
+[vite-url]: https://vitejs.dev
+[json-server-url]: https://www.npmjs.com/package/json-server
+[react-hook-form-url]: https://react-hook-form.com
+[sweet-url]: https://sweetalert2.github.io/#download

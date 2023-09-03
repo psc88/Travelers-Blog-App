@@ -17,6 +17,15 @@
       "linkImage": "https://www.tafiviejo.gob.ar/fotos/cache/notas/2021/12/07/830x465_211207131802_74485.jpg",
       "liked": 0,
       "id": 2
+    },
+    {
+      "title": "Primera publi",
+      "author": "Macielacho Molina",
+      "description": "opadvokmdakp adpovmado´vmdoá oadjkvo´daáko",
+      "datePublication": "03/09/2023",
+      "linkImage": "https://www.tafiviejo.gob.ar/fotos/cache/notas/2021/12/07/830x465_211207131802_74485.jpg",
+      "liked": 0,
+      "id": 3
     }
   ],
   "users": [
@@ -27,46 +36,10 @@
       "password": "1234"
     },
     {
-      "name": "Javier Peralta",
-      "email": "jperalta@gmail.com",
-      "password": "1234",
-      "id": 2
-    },
-    {
-      "name": "flor molina",
-      "email": "fmolina@gmail.com",
-      "password": "1234",
-      "id": 3
-    },
-    {
       "name": "Macielacho Molina",
       "email": "mmolina@gmail.com",
       "password": "1234",
-      "id": 4
-    },
-    {
-      "name": "lololo",
-      "email": "lolo@gmail.com",
-      "password": "1234",
-      "id": 5
-    },
-    {
-      "name": "cristian",
-      "email": "cc@gmail.com",
-      "password": "1234",
-      "id": 6
-    },
-    {
-      "name": "Juan Peres",
-      "email": "jperes@gmail.com",
-      "password": "1234",
-      "id": 7
-    },
-    {
-      "name": "Alicia Castillo",
-      "email": "acastillo@gmail.com",
-      "password": "1234",
-      "id": 8
+      "id": 2
     }
   ]
 }

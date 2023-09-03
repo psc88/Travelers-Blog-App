@@ -1,14 +1,13 @@
 import { AppBar, Toolbar, Tabs, Tab, Button, Typography } from '@mui/material'
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import { useState, useContext } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useMediaQueryTheme } from '../../hooks/useMediaQueryTheme';
 import { NavBarDrawer } from './partials/NavBarDrawer';
 import { UserContext } from '../../context/UserContext';
 
 export const NavBar = () => {
   const [itemSelectionNavbar, setItemSelectionNavbar] = useState(0)
-  const location = useLocation();
   const navigate = useNavigate();
   const themeMediaQuery = useMediaQueryTheme("md");
   const {userAuthenticated, logout} = useContext(UserContext)  

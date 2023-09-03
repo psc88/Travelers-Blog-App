@@ -1,11 +1,11 @@
-import { Typography, Grid, TextField, Button, Link } from "@mui/material"
-import { AuthLayout } from "../../layout/AuthLayout";
+import { useEffect, useContext } from 'react'
 import { useForm } from "react-hook-form";
+import { Typography, Grid, TextField, Button, Link } from "@mui/material"
 import { useParams, useNavigate, Link as RoterLink } from "react-router-dom";
-import Swal from "sweetalert2";
+import { AuthLayout } from "../../layout/AuthLayout";
 import usePostsById from "../../hooks/usePostsById";
-import { useEffect } from 'react'
-
+import { UserContext } from "../../context/UserContext";
+import Swal from "sweetalert2";
 interface IEditPost {
   title: string;
   author: string;
@@ -19,8 +19,9 @@ export const EditPublication = () => {
   const URL = `${import.meta.env.VITE_REACT_APP_API_URL}/posts`;
   const navigate = useNavigate();
   const { id = "0" } = useParams()
-  const { userPost } = usePostsById(id)
-
+  const { userAuthenticated } = useContext(UserContext)
+  
+  const { userPost } = usePostsById(id, userAuthenticated.name)
 
   const { handleSubmit, register, formState, reset } = useForm({
     defaultValues: {
@@ -92,7 +93,6 @@ export const EditPublication = () => {
             <TextField
               {...register("title", { required: true, minLength: 4, maxLength: 20, pattern: /^[a-zA-Z\s]+$/ })}
               label='Titulo'
-              defaultValue={userPost.title}
               type='text'
               fullWidth
             />
@@ -105,7 +105,6 @@ export const EditPublication = () => {
             <TextField
               {...register("datePublication")}
               label="Fecha"
-              defaultValue={userPost.datePublication}
               type='text'
               placeholder='01/01/2000'
               disabled
@@ -117,7 +116,6 @@ export const EditPublication = () => {
             <TextField
               {...register("description", { required: true, minLength: 20, maxLength: 1000 })}
               label="Comentario"
-              defaultValue={userPost.description}
               type='text'
               placeholder='Descripción'
               rows={6}
@@ -132,7 +130,6 @@ export const EditPublication = () => {
             <TextField
               {...register("linkImage", { required: true, pattern: /^https?:\/\/[\w-]+(\.[\w-]+)+[/#?]?.*$/ })}
               label="Link de la imagen"
-              defaultValue={userPost.linkImage}
               type='url'
               placeholder='Link de la imagen'
               fullWidth

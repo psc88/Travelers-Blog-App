@@ -6,6 +6,12 @@ interface State<T> {
   hasError: Error | null | unknown;
 }
 
+/**
+ * Obtains information from an endpoint provided as a parameter.
+ * @param url 
+ * @returns {State}
+ */
+
 export const useFetch = <T = unknown>(url: string): State<T> => {
   const [stateDataGet, setStateDataGet] = useState<State<T>>({
     data: undefined,

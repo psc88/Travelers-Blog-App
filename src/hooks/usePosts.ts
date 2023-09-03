@@ -3,6 +3,11 @@ import { useState, useEffect, useContext } from 'react'
 import { getData } from "../services/getData";
 import { UserContext } from "../context/UserContext";
 
+/**
+ * Obtains information about the posts from the endpoint.
+ * @param url 
+ * @returns {Post[]}
+ */
 
 const usePosts = () => {
 

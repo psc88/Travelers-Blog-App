@@ -1,3 +1,8 @@
+/**
+ * obtiene la fecha del dia en formato DD/MM/AAAA
+ * @returns {string}
+ */
+
 export function GetCurrentDate() {
   const fecha = new Date();
   const dia = String(fecha.getDate()).padStart(2, '0');

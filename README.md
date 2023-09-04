@@ -4,7 +4,8 @@
 
 Travelers' Blog Application designed and intended for users who want to share their travel adventures from around the world, allowing them to view comments from other users and stay informed about the features of different places.
 
-[![page][page-image]][page-image-url]
+![page][page-image1]
+![page][page-image2]
 
 ### Technologies used
 [![react][react]][react-url]
@@ -103,5 +104,7 @@ project-name/
 [react-router]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
 [react-router-url]: https://reactrouter.com/en/main
 [sweet-url]: https://sweetalert2.github.io/#download
-[page-image]: https://raw.githubusercontent.com/psc88/Travelers-Blog-App/main/src/assets/imageWeb.png
-[page-image-url]: https://raw.githubusercontent.com/psc88/Travelers-Blog-App/main/src/assets/imageWeb.png
+[page-image1]: https://raw.githubusercontent.com/psc88/Travelers-Blog-App/main/src/assets/imageWeb.png
+[page-image1-url]: https://raw.githubusercontent.com/psc88/Travelers-Blog-App/main/src/assets/imageWeb.png
+[page-image2]: https://raw.githubusercontent.com/psc88/Travelers-Blog-App/main/src/assets/imageWeb1.png
+[page-image2-url]: https://raw.githubusercontent.com/psc88/Travelers-Blog-App/main/src/assets/imageWeb1.png

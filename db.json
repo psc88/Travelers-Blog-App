@@ -51,5 +51,20 @@
       "id": 5
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "name": "Pablo Sebastián ",
+      "idPost": 1,
+      "comment": "Nuevo comentario de prueba",
+      "datePublication": "04/09/2023",
+      "id": 1
+    },
+    {
+      "name": "UserPrueba",
+      "idPost": 1,
+      "comment": "Nuevo comentario de prueba",
+      "datePublication": "04/09/2023",
+      "id": 2
+    }
+  ]
 }

@@ -34,7 +34,7 @@ export const HomeBlog = () => {
             ) : (
               <Grid container>
                 {
-                  data?.map(post => <Cards key={post.id} post={post} />)
+                  data?.sort((a,b)=>b.id-a.id).map(post => <Cards key={post.id} post={post} />)
                 }
               </Grid>
             )

@@ -26,6 +26,15 @@
       "linkImage": "https://www.tafiviejo.gob.ar/fotos/cache/notas/2021/12/07/830x465_211207131802_74485.jpg",
       "liked": 0,
       "id": 3
+    },
+    {
+      "title": "ewvwvwdvw",
+      "author": "Pablo Castillo",
+      "description": "dwvwdvwvwdvw vwevwevwvw",
+      "datePublication": "03/09/2023",
+      "linkImage": "https://media.istockphoto.com/id/867132920/es/foto/glaciar-perito-moreno-en-la-patagonia.jpg?s=612x612&w=0&k=20&c=TnWgpJj_FEWfeCBKDsjDnl6nSZEs3CG2JgEzHC3zO8g=",
+      "liked": 0,
+      "id": 4
     }
   ],
   "users": [
@@ -40,6 +49,13 @@
       "email": "mmolina@gmail.com",
       "password": "1234",
       "id": 2
+    },
+    {
+      "name": "flor molina",
+      "email": "fmolina@gmail.com",
+      "password": "1234",
+      "id": 3
     }
-  ]
+  ],
+  "comments": []
 }

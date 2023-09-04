@@ -15,10 +15,17 @@ import { Post } from "../../../../interfaces/Posts.interface";
 import { ItemCardLike } from '../components/ItemCardLike';
 import './style.css'
 import { firstCharacter } from '../../../../helpers/firstCharacter';
-
 interface ICardsProps{
   post: Post;
 }
+
+/**
+ * A component that returns a Card with the data of 
+ * 'author, publication date, publication description, number of likes'
+ * with the option to view more details.
+ * @param post 
+ * @returns
+ */
 
 export const Cards: FC<ICardsProps> =({ post }) => {
 

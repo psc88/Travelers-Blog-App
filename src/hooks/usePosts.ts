@@ -20,7 +20,7 @@ const usePosts = () => {
       const posts = await getData<Post[]>(`${URL}/posts`);
       const filteredPostsByUser = posts.filter(post => post.author === userAuthenticated.name)
 
-      setUserPost(filteredPostsByUser)
+      setUserPost(filteredPostsByUser.sort((a,b)=>b.id-a.id))
     } catch (error) {
       setUserPost([])
     }

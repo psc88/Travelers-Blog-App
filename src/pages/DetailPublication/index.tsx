@@ -13,7 +13,7 @@ export const DetailPublication = () => {
   if (!userPost) {
     return null;
   }
-
+  
   return (
     <AuthLayout title={userPost.title}>
       <Grid
@@ -40,7 +40,7 @@ export const DetailPublication = () => {
             />
             <Typography variant="subtitle1" color="initial" sx={{p:1}}>{userPost.description}</Typography>
           </Grid>
-          <DetailPublicationComment/>
+          <DetailPublicationComment idPublication={id}/>
         </Card>
       </Grid>
     </AuthLayout>

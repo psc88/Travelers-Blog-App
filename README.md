@@ -1,3 +1,5 @@
+<h1 align="center">Template: README</h1>
+
 ## About the project
 
 Travelers' Blog Application designed and intended for users who want to share their travel adventures from around the world, allowing them to view comments from other users and stay informed about the features of different places.

@@ -27,14 +27,14 @@ export const HomeBlog = () => {
               <Grid container>
                 <Grid item lg={8} md={6} xs={12}>
                   {
-                    data?.map(post => <Cards key={post.id} post={post} />)
+                    data?.sort((a,b)=>b.id-a.id).map(post => <Cards key={post.id} post={post} />)
                   }
                 </Grid>
               </Grid>
             ) : (
               <Grid container>
                 {
-                  data?.map(post => <Cards key={post.id} post={post} />)
+                  data?.sort((a,b)=>b.id-a.id).map(post => <Cards key={post.id} post={post} />)
                 }
               </Grid>
             )

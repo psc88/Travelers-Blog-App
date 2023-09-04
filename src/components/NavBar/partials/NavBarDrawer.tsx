@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import {
   Drawer,
   List,
@@ -9,43 +9,32 @@ import {
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../../context/UserContext';
 
 export const NavBarDrawer = () => {
   const [openDrawer, setOpenDrawer] = useState(false)
   const navigate = useNavigate();
-  const navItems = [{
-    label: 'Inicio',
-    path: '/home',
-    onclick: () => {
-      navigate('/home')
-      setOpenDrawer(false)
+  const { userAuthenticated, logout } = useContext(UserContext)
+
+  const handleOnclickHome = () => {
+    navigate('/home')
+    setOpenDrawer(false)
   }
-  },
-  {
-    label: 'Administrador',
-    path: '/admin',
-    onclick: () => {
-      navigate('/admin')
-      setOpenDrawer(false)
+
+  const handleOnclickadmin = () => {
+    navigate('/admin')
+    setOpenDrawer(false)
   }
-  },
-  {
-    label: 'Ingresar',
-    path: '/loginUser',
-    onclick: () => {
-      navigate('/loginUser')
-      setOpenDrawer(false)
+
+  const handleOnclicklogOut = () => {
+    logout();
+    setOpenDrawer(false)
   }
-  },
-  {
-    label: 'Cerrar sesión',
-    path: '/loginUser',
-    onclick: () => {
-      navigate('/loginUser')
-      setOpenDrawer(false)
-    }
+
+  const handleOnclickloginUser = () => {
+    navigate('/loginUser')
+    setOpenDrawer(false)
   }
-]
 
   return (
     <>
@@ -55,15 +44,39 @@ export const NavBarDrawer = () => {
       >
         <List>
           {
-            navItems.map((item, index) => (
-              <ListItemButton key={index} onClick={item.onclick}>
-                <ListItemIcon>
-                  <ListItemText>{item.label}</ListItemText>
-                </ListItemIcon>
-              </ListItemButton>
-            ))
+            userAuthenticated.name ? (
+              <>
+                <ListItemButton onClick={handleOnclickHome}>
+                  <ListItemIcon>
+                    <ListItemText>Inicio</ListItemText>
+                  </ListItemIcon>
+                </ListItemButton>
+                <ListItemButton onClick={handleOnclickadmin}>
+                  <ListItemIcon>
+                    <ListItemText>Administrador</ListItemText>
+                  </ListItemIcon>
+                </ListItemButton>
+                <ListItemButton onClick={handleOnclicklogOut}>
+                  <ListItemIcon>
+                    <ListItemText>Cerrar sesión</ListItemText>
+                  </ListItemIcon>
+                </ListItemButton>
+              </>
+            ) : (
+              <>
+                <ListItemButton onClick={handleOnclickHome}>
+                  <ListItemIcon>
+                    <ListItemText>Inicio</ListItemText>
+                  </ListItemIcon>
+                </ListItemButton>
+                <ListItemButton onClick={handleOnclickloginUser}>
+                  <ListItemIcon>
+                    <ListItemText>Ingresar</ListItemText>
+                  </ListItemIcon>
+                </ListItemButton>
+              </>
+            )
           }
-
         </List>
       </Drawer>
       <IconButton

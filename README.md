@@ -57,6 +57,7 @@ project-name/
 ├── node_modules             # Third party libraries
 ├── public                   # 
 └── src                      # Root directory
+|  ├── assets                # 
 |  ├── components            # Common components
 |  ├── context               # 
 |  ├── helpers               # Common functions

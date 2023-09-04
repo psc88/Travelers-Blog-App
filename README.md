@@ -97,5 +97,5 @@ project-name/
 [json-server-url]: https://www.npmjs.com/package/json-server
 [react-hook-form-url]: https://react-hook-form.com
 [sweet-url]: https://sweetalert2.github.io/#download
-[page-image]: https://github.com/psc88/Travelers-Blog-App/blob/main/src/assets/imageWeb.jpg
-[page-image-url]: https://raw.githubusercontent.com/psc88/Travelers-Blog-App/main/src/assets/imageWeb.jpg
+[page-image]: https://raw.githubusercontent.com/psc88/Travelers-Blog-App/main/src/assets/imageWeb.png
+[page-image-url]: https://raw.githubusercontent.com/psc88/Travelers-Blog-App/main/src/assets/imageWeb.png

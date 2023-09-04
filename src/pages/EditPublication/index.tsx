@@ -92,7 +92,7 @@ export const EditPublication = () => {
           <Grid item xs={12} sm={6} sx={{ mt: 1 }}>
             <TextField
               {...register("title", { required: true, minLength: 4, maxLength: 20, pattern: /^[a-zA-Z\s]+$/ })}
-              label='Titulo'
+              label='Título'
               type='text'
               fullWidth
             />

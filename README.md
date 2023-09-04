@@ -4,6 +4,8 @@
 
 Travelers' Blog Application designed and intended for users who want to share their travel adventures from around the world, allowing them to view comments from other users and stay informed about the features of different places.
 
+[![page][page-image]][page-image-url]
+
 ### Technologies used
 [![react][react]][react-url]
 [![typescript][ts]][ts-url]
@@ -95,3 +97,5 @@ project-name/
 [json-server-url]: https://www.npmjs.com/package/json-server
 [react-hook-form-url]: https://react-hook-form.com
 [sweet-url]: https://sweetalert2.github.io/#download
+[page-image]: https://github.com/psc88/Travelers-Blog-App/blob/main/src/assets/imageWeb.jpg
+[page-image-url]: https://raw.githubusercontent.com/psc88/Travelers-Blog-App/main/src/assets/imageWeb.jpg

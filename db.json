@@ -57,5 +57,20 @@
       "id": 3
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "name": "Pablo Castillo",
+      "idPost": 4,
+      "comment": "utfvtuvutyvuvu",
+      "datePublication": "03/09/2023",
+      "id": 1
+    },
+    {
+      "name": "Pablo Castillo",
+      "idPost": 1,
+      "comment": "bubihjbbihbjiojjbb",
+      "datePublication": "03/09/2023",
+      "id": 2
+    }
+  ]
 }

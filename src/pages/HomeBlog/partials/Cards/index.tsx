@@ -17,6 +17,8 @@ import './style.css'
 import { firstCharacter } from '../../../../helpers/firstCharacter';
 interface ICardsProps{
   post: Post;
+  idPost: number;
+  fetchUserPosts: () => Promise<void>;
 }
 
 /**
@@ -27,8 +29,7 @@ interface ICardsProps{
  * @returns
  */
 
-export const Cards: FC<ICardsProps> =({ post }) => {
-
+export const Cards: FC<ICardsProps> =({ post, idPost, fetchUserPosts }) => {
   return (
     <Grid item md={6} xs={12}>
       <Card sx={{ bgcolor: "primary.main", margin: 1 }}>
@@ -53,7 +54,11 @@ export const Cards: FC<ICardsProps> =({ post }) => {
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <ItemCardLike countLiked={post.liked}></ItemCardLike>
+          <ItemCardLike 
+          countLiked={post.liked} 
+          idPost={idPost}
+          fetchUserPosts={fetchUserPosts}
+          ></ItemCardLike>
           <Grid container direction="row" justifyContent="end">
             <Link
               component={RouterLink}

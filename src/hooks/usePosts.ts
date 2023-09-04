@@ -5,11 +5,10 @@ import { UserContext } from "../context/UserContext";
 
 /**
  * Obtains information about the posts from the endpoint.
- * @param url 
- * @returns {Post[]}
+ * @returns {{userPost: Post[], fetchUserPosts: () => Promise<void>}}
  */
 
-const usePosts = () => {
+const usePosts = (): {userPost: Post[]; fetchUserPosts: () => Promise<void>} => {
 
   const [userPost, setUserPost] = useState<Post[]>([])
   const {userAuthenticated} = useContext(UserContext)

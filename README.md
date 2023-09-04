@@ -9,6 +9,8 @@ Travelers' Blog Application designed and intended for users who want to share th
 ### Technologies used
 [![react][react]][react-url]
 [![typescript][ts]][ts-url]
+[![react-hook-form][react-hook-form]][react-hook-form-url]
+[![react-router][react-router]][react-router-url]
 [![MUI][MUI]][mui-url]
 [![Yarn][yarn]][yarn-url]
 [![vite][vite]][vite-url]
@@ -81,7 +83,7 @@ project-name/
 ├── tsconfig.json            # 
 ├── tsconfig.node.json       # 
 ├── vite.config.js           # 
-├── yarn.lock     yarn           # 
+├── yarn.lock                # 
 ```
 
 [nodejs-url]: https://nodejs.org/en
@@ -96,7 +98,10 @@ project-name/
 [vite]: https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white
 [vite-url]: https://vitejs.dev
 [json-server-url]: https://www.npmjs.com/package/json-server
+[react-hook-form]: https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=for-the-badge&logo=reacthookform&logoColor=white
 [react-hook-form-url]: https://react-hook-form.com
+[react-router]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
+[react-router-url]: https://reactrouter.com/en/main
 [sweet-url]: https://sweetalert2.github.io/#download
 [page-image]: https://raw.githubusercontent.com/psc88/Travelers-Blog-App/main/src/assets/imageWeb.png
 [page-image-url]: https://raw.githubusercontent.com/psc88/Travelers-Blog-App/main/src/assets/imageWeb.png

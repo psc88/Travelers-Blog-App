@@ -1,4 +1,4 @@
-<h1 align="center">Template: README</h1>
+<h1 align="center">Travelers Blog</h1>
 
 ## About the project
 

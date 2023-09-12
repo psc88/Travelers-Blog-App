@@ -33,8 +33,8 @@ export const CreateUser = () => {
   });
 
   const URL = import.meta.env.VITE_REACT_APP_API_URL;
-  const { data } = useFetch(`${URL}/users`)
-  const listUser = data as User[]
+  const { data } = useFetch<User[]>(`${URL}/users`)
+  const listUser = data
 
   const onSubmit = async (data: ICreateUser) => {
     try {

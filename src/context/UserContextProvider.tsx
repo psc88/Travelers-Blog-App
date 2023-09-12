@@ -7,9 +7,7 @@ interface IUserContextProviderProps {
   children: ReactNode | ReactNode[]
 }
 
-const UserContextProvider: FC<IUserContextProviderProps> = ({
-  children
-}) => {
+const UserContextProvider: FC<IUserContextProviderProps> = ({children}) => {
   const cookieSession = JSON.parse(sessionStorage.getItem('user')!) as User
   const initialState = {
     email: '',

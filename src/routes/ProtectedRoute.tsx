@@ -8,14 +8,11 @@ interface IProtectedRoute {
 }
 
 export const ProtectedRoute: FC<IProtectedRoute> = ({ children }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { userAuthenticated } = useContext(UserContext)
   const navigate = useNavigate();
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const { userAuthenticated } = useContext(UserContext)
-
   const checkUserToken = () => {
-
     if (userAuthenticated.name === '') {
       setIsLoggedIn(false);
       return navigate('/loginUser');

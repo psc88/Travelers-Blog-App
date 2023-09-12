@@ -1,4 +1,3 @@
-import { useContext, useState } from 'react'
 import {
   Drawer,
   List,
@@ -8,33 +7,19 @@ import {
   IconButton
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
-import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../../../context/UserContext';
+import useNavBarDrawer from '../../../hooks/useNavBarDrawer';
 
 export const NavBarDrawer = () => {
-  const [openDrawer, setOpenDrawer] = useState(false)
-  const navigate = useNavigate();
-  const { userAuthenticated, logout } = useContext(UserContext)
 
-  const handleOnclickHome = () => {
-    navigate('/home')
-    setOpenDrawer(false)
-  }
-
-  const handleOnclickadmin = () => {
-    navigate('/admin')
-    setOpenDrawer(false)
-  }
-
-  const handleOnclicklogOut = () => {
-    logout();
-    setOpenDrawer(false)
-  }
-
-  const handleOnclickloginUser = () => {
-    navigate('/loginUser')
-    setOpenDrawer(false)
-  }
+  const {
+    openDrawer, 
+    setOpenDrawer,
+    handleOnclickHome,
+    handleOnclickadmin,
+    handleOnclicklogOut,
+    handleOnclickloginUser,
+    userAuthenticated
+  } = useNavBarDrawer()
 
   return (
     <>

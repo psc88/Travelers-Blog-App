@@ -8,9 +8,9 @@ import { UserContext } from '../../context/UserContext';
 
 export const NavBar = () => {
   const [itemSelectionNavbar, setItemSelectionNavbar] = useState(0)
-  const navigate = useNavigate();
-  const themeMediaQuery = useMediaQueryTheme("md");
   const {userAuthenticated, logout} = useContext(UserContext)  
+  const themeMediaQuery = useMediaQueryTheme("md");
+  const navigate = useNavigate();
 
   return (
     <AppBar color='primary'>
